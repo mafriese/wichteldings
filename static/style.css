@@ -3,19 +3,21 @@
     /* Brighter Red for dark mode */
     --primary-hover: #DC2626;
     --background: #111827;
-    --card-bg: #1F2937;
+    --card-bg: rgba(31, 41, 55, 0.8);
+    /* Glassmorphism base */
     --text-main: #F9FAFB;
     --text-muted: #9CA3AF;
-    --border: #374151;
+    --border: rgba(255, 255, 255, 0.1);
     --success: #10B981;
     --error: #F87171;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-    --radius: 12px;
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --radius: 16px;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--background);
+    background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+    /* Winter Night Gradient */
     color: var(--text-main);
     margin: 0;
     padding: 0;
@@ -24,12 +26,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll from snow */
 }
 
 .container {
     width: 100%;
     max-width: 600px;
     padding: 2rem;
+    position: relative;
+    z-index: 10;
 }
 
 header {
@@ -38,9 +44,12 @@ header {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 3rem;
     font-weight: 700;
-    color: var(--primary);
+    color: #FCD34D;
+    /* Gold */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     margin: 0;
 }
 
@@ -49,12 +58,17 @@ h1 {
     padding: 2rem;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 h2 {
+    font-family: 'Mountains of Christmas', cursive;
     margin-top: 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 0.5rem;
+    color: #FCD34D;
 }
 
 .subtitle {
@@ -83,7 +97,7 @@ input[type="text"] {
     font-size: 1rem;
     box-sizing: border-box;
     transition: border-color 0.2s;
-    background-color: #374151;
+    background-color: rgba(55, 65, 81, 0.6);
     color: var(--text-main);
 }
 
@@ -98,23 +112,26 @@ input:focus {
     display: block;
     width: 100%;
     padding: 1rem;
-    background-color: var(--primary);
+    background: linear-gradient(135deg, #EF4444, #B91C1C);
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-family: 'Mountains of Christmas', cursive;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
-    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .btn-secondary {
     padding: 0.5rem 1rem;
-    background-color: #374151;
+    background-color: rgba(55, 65, 81, 0.6);
     color: var(--text-main);
     border: 1px solid var(--border);
     border-radius: 6px;
@@ -146,7 +163,7 @@ input:focus {
 .link-input {
     width: 200px;
     font-size: 0.9rem;
-    background-color: #374151;
+    background-color: rgba(55, 65, 81, 0.6);
     color: var(--text-muted);
     border: 1px solid var(--border);
 }
@@ -159,8 +176,9 @@ input:focus {
 }
 
 .flash.error {
-    background-color: #7F1D1D;
+    background-color: rgba(127, 29, 29, 0.8);
     color: #FECACA;
+    border: 1px solid #EF4444;
 }
 
 .reveal-card {
@@ -175,7 +193,7 @@ input:focus {
 }
 
 .receiver-card {
-    background: #374151;
+    background: rgba(55, 65, 81, 0.6);
     padding: 1.5rem;
     border-radius: 12px;
     border: 2px solid #EF4444;
@@ -183,6 +201,7 @@ input:focus {
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    backdrop-filter: blur(4px);
 }
 
 .gift-icon {
@@ -190,9 +209,10 @@ input:focus {
 }
 
 .receiver-name {
-    font-size: 1.5rem;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 2rem;
     font-weight: 700;
-    color: var(--primary);
+    color: #FCD34D;
 }
 
 .info-text {
@@ -203,7 +223,7 @@ input:focus {
 footer {
     text-align: center;
     margin-top: 2rem;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.9rem;
 }
 
@@ -219,4 +239,32 @@ footer {
 
 .btn-text:hover {
     text-decoration: underline;
+}
+
+/* Snow Animation */
+.snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -50px;
+    color: white;
+    user-select: none;
+    animation-name: fall;
+    animation-timing-function: linear;
+    will-change: transform;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
 }

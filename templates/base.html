@@ -6,13 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wichteln Generator</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Mountains+of+Christmas:wght@400;700&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
+    <div class="snow-container" id="snow-container"></div>
     <div class="container">
         <header>
-            <h1>Familie Friesen&trade; Wichteln - Vibe Coded by Google&trade; Gemini 3 Pro</h1>
+            <h1>Familie Friesen&trade; Wichteln Generator</h1>
         </header>
 
         <main>
@@ -33,6 +38,26 @@
             <p>Made with 🎄 from Marcel for you</p>
         </footer>
     </div>
+    <script>
+        function createSnowflake() {
+            const snowContainer = document.getElementById('snow-container');
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+            snowflake.style.opacity = Math.random();
+            snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+
+            snowContainer.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 5000);
+        }
+
+        setInterval(createSnowflake, 100);
+    </script>
 </body>
 
 </html>
