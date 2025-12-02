@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Create New Wichteln</h2>
+    <p class="subtitle">Enter names and configure your Secret Santa exchange.</p>
+
+    <form method="POST" action="/">
+        <div class="form-group">
+            <label for="names">Participants (one per line)</label>
+            <textarea name="names" id="names" rows="10" placeholder="Alice&#10;Bob&#10;Charlie&#10;Dave"
+                required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="n_giftees">Giftees per Person</label>
+            <input type="number" name="n_giftees" id="n_giftees" value="1" min="1" max="10" required>
+            <small>How many people should each person buy a gift for?</small>
+        </div>
+
+        <div class="form-group">
+            <label for="exclusions">Exclusions (Optional)</label>
+            <textarea name="exclusions" id="exclusions" rows="4" placeholder="Alice, Bob&#10;Charlie, Dave"></textarea>
+            <small>Enter pairs who should NOT gift each other (e.g. couples). Format: Giver, Receiver (one pair per
+                line).</small>
+        </div>
+
+        <button type="submit" class="btn-primary">Generate Links ✨</button>
+    </form>
+</div>
+{% endblock %}

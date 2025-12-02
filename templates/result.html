@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>🎉 Pairing Successful!</h2>
+    <p class="subtitle">Send these links to the respective participants.</p>
+
+    <div class="results-list">
+        {% for result in results %}
+        <div class="result-item">
+            <span class="name">{{ result.name }}</span>
+            <div class="actions">
+                <input type="text" value="{{ result.link }}" readonly class="link-input" id="link-{{ loop.index }}">
+                <button onclick="copyLink('link-{{ loop.index }}')" class="btn-secondary">Copy</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="actions-footer">
+        <a href="/" class="btn-text">Start Over</a>
+    </div>
+</div>
+
+<script>
+    function copyLink(elementId) {
+        var copyText = document.getElementById(elementId);
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /* For mobile devices */
+        navigator.clipboard.writeText(copyText.value).then(function () {
+            alert("Link copied!");
+        }, function (err) {
+            console.error('Async: Could not copy text: ', err);
+        });
+    }
+</script>
+{% endblock %}

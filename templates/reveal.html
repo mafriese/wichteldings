@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card reveal-card">
+    {% if error %}
+    <div class="error-state">
+        <h2>⚠️ Oops!</h2>
+        <p>{{ error }}</p>
+    </div>
+    {% else %}
+    <h2>Hello, {{ giver }}! 👋</h2>
+    <p class="subtitle">You are the Secret Santa for:</p>
+
+    <div class="receivers-list">
+        {% for receiver in receivers %}
+        <div class="receiver-card">
+            <span class="gift-icon">🎁</span>
+            <span class="receiver-name">{{ receiver }}</span>
+        </div>
+        {% endfor %}
+    </div>
+
+    <p class="info-text">Keep it a secret! 🤫</p>
+    {% endif %}
+</div>
+{% endblock %}
