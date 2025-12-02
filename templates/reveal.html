@@ -8,8 +8,8 @@
         <p>{{ error }}</p>
     </div>
     {% else %}
-    <h2>Hello, {{ giver }}! 👋</h2>
-    <p class="subtitle">You are the Secret Santa for:</p>
+    <h2>Hallo, {{ giver }}! 👋</h2>
+    <p class="subtitle">Du wichtelst f&uuml;r:</p>
 
     <div class="receivers-list">
         {% for receiver in receivers %}
@@ -20,7 +20,7 @@
         {% endfor %}
     </div>
 
-    <p class="info-text">Keep it a secret! 🤫</p>
+    <p class="info-text">Sag es niemandem oder das Christkind boxt dich 🥊🥊</p>
     {% endif %}
 </div>
 {% endblock %}

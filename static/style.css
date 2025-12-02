@@ -1,14 +1,15 @@
 :root {
-    --primary: #D42426; /* Christmas Red */
-    --primary-hover: #B01B1D;
-    --background: #F0F4F8;
-    --card-bg: #FFFFFF;
-    --text-main: #1F2937;
-    --text-muted: #6B7280;
-    --border: #E5E7EB;
+    --primary: #EF4444;
+    /* Brighter Red for dark mode */
+    --primary-hover: #DC2626;
+    --background: #111827;
+    --card-bg: #1F2937;
+    --text-main: #F9FAFB;
+    --text-muted: #9CA3AF;
+    --border: #374151;
     --success: #10B981;
-    --error: #EF4444;
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --error: #F87171;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
     --radius: 12px;
 }
 
@@ -71,7 +72,9 @@ label {
     margin-bottom: 0.5rem;
 }
 
-textarea, input[type="number"], input[type="text"] {
+textarea,
+input[type="number"],
+input[type="text"] {
     width: 100%;
     padding: 0.75rem;
     border: 1px solid var(--border);
@@ -80,12 +83,15 @@ textarea, input[type="number"], input[type="text"] {
     font-size: 1rem;
     box-sizing: border-box;
     transition: border-color 0.2s;
+    background-color: #374151;
+    color: var(--text-main);
 }
 
-textarea:focus, input:focus {
+textarea:focus,
+input:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(212, 36, 38, 0.1);
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
 }
 
 .btn-primary {
@@ -108,9 +114,9 @@ textarea:focus, input:focus {
 
 .btn-secondary {
     padding: 0.5rem 1rem;
-    background-color: var(--text-main);
-    color: white;
-    border: none;
+    background-color: #374151;
+    color: var(--text-main);
+    border: 1px solid var(--border);
     border-radius: 6px;
     cursor: pointer;
     font-weight: 600;
@@ -140,7 +146,9 @@ textarea:focus, input:focus {
 .link-input {
     width: 200px;
     font-size: 0.9rem;
-    background-color: #F9FAFB;
+    background-color: #374151;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
 }
 
 .flash {
@@ -151,8 +159,8 @@ textarea:focus, input:focus {
 }
 
 .flash.error {
-    background-color: #FEE2E2;
-    color: #B91C1C;
+    background-color: #7F1D1D;
+    color: #FECACA;
 }
 
 .reveal-card {
@@ -167,10 +175,10 @@ textarea:focus, input:focus {
 }
 
 .receiver-card {
-    background: #FEF2F2;
+    background: #374151;
     padding: 1.5rem;
     border-radius: 12px;
-    border: 2px solid #FECACA;
+    border: 2px solid #EF4444;
     display: flex;
     align-items: center;
     justify-content: center;
